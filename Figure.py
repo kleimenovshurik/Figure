@@ -159,4 +159,4 @@ s1.area(9)
 s1.count_angles()
 s1.radius()
 
-#MironovaTamaraKarlovna1@
+#MironovaTamaraKarlovna1@   klfkn@mail.ru
