@@ -139,6 +139,22 @@ class Circle(Figure):
         super().__init__()
         self.diametr = diametr
 
+    def info(self):
+        super().info()
+        print("Привет, я круг с диаметорм: " + str(self.diametr))
+
+    def area(self):
+        super().area()
+        return  float((8/2) ** 2 * 3.14)
+
+    def count_angles(self):
+        super().count_angles()
+        print("Я круг, у меня нет углов")
+
+    def radius(self):
+        super().radius()
+        print(self.diametr/2)
+
 
 point = Point("4", "2")
 point1 = Figure()
@@ -159,4 +175,10 @@ s1.area(9)
 s1.count_angles()
 s1.radius()
 
-#MironovaTamaraKarlovna1@   klfkn@mail.ru
+c1 = Circle(8)
+c1.info()
+
+print(c1.area())
+c1.diametr
+
+#MironovaTamaraKarlovna1@
