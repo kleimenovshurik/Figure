@@ -1,3 +1,4 @@
+import math
 class Figure():
 
     def __init__(self):
@@ -123,6 +124,8 @@ class Square(Figure):
         self.sidesize = sidesize
         print(self.sidesize ** 2)
 
+    #def perimeter(self):
+
     def count_angles(self):
         super().count_angles()
         print("Привет, я квадрат, у меня четыре угла.")
@@ -145,7 +148,7 @@ class Circle(Figure):
 
     def area(self):
         super().area()
-        return  float((8/2) ** 2 * 3.14)
+        return  float((self.diametr/2) ** 2 * 3.14)
 
     def count_angles(self):
         super().count_angles()
@@ -155,30 +158,104 @@ class Circle(Figure):
         super().radius()
         print(self.diametr/2)
 
+#прямоугольник
+class Rectangle(Figure):
+    def __init__(self, a :int, b: int):
+        super().__init__()
+        self.a = a
+        self.b = b
 
-point = Point("4", "2")
-point1 = Figure()
-point.info()
-point.area()
-point1.area()
+    def info(self):
+        super().info()
+        print("Я прямоугольник со сторонами:" + str(self.a) + " и " + str(self.b))
 
-Ma = Polygon([1, 3, 4, 7, 5])
-Ma.perimeter()
-Ma.area([[3, 4], [5, 11], [12, 8], [9, 5], [5, 6]])
-Ma.radius([[3, 4], [5, 11], [12, 8], [9, 5], [5, 6]])
+    def area(self):
+        super().area()
+        return int(self.a * self.b)
 
-# Ma.area([[4,3],[2,9],[7,8],[5,6],[2,2]])
-# Ma.count_angles()
+    def perimeter(self):
+        super().perimeter()
+        return int(2 * (self.a + self.b))
 
-s1 = Square(4)
-s1.area(9)
-s1.count_angles()
-s1.radius()
+    def count_angles(self):
+        super().count_angles()
+        print("Я прямоугольник, у меня четыре угла")
 
-c1 = Circle(8)
-c1.info()
+#радиус описанной окружности
+    def radius(self):
+        super().radius()
+        return (((self.a * self.a + self.b * self.b) ** 0.5) / 2)
 
-print(c1.area())
-c1.diametr
+class Ellipse(Figure):
+    def __init__(self, semi_major_axis, minor_axis, fi):
+        super().__init__()
+        self.semi_major_axis = semi_major_axis
+        self.minor_axis = minor_axis
+        self.fi = fi
 
-#MironovaTamaraKarlovna1@
+    def info(self):
+        super().info()
+        print("Привет, я эллипс с большой полуосью: " + str(self.semi_major_axis) + " с малой полуосью: " + str(self.minor_axis) + " углом фи: " + str(self.fi) + " градусов")
+
+    def area(self):
+        super().area()
+        return float(3.14 * self.semi_major_axis * self.minor_axis)
+
+    #приближенная формула вычисления периметра эллипса
+    def perimeter(self):
+        super().perimeter()
+        numerator = float(3.14 * self.semi_major_axis * self.minor_axis + (self.semi_major_axis - self.minor_axis) ** 2)
+        denominator = self.semi_major_axis + self.minor_axis
+        return float(4 * numerator / denominator )
+
+    def count_angles(self):
+        super().count_angles()
+        print("Привет, я эллипс, у меня нет углов")
+
+    def radius(self):
+        super().radius()
+        numerator = self.semi_major_axis * self.minor_axis
+        denominator1 = float(self.minor_axis ** 2 * math.cos(self.fi) ** 2)
+        denominator2 = float(self.semi_major_axis ** 2 * math.sin(self.fi) ** 2)
+        preresult = (denominator1 + denominator2) ** 0.5
+        result = numerator / preresult
+        return result
+
+class Square(Figure):
+    def __init__(self, sideA):
+        super().__init__()
+        self.sideA = sideA
+
+    def info(self):
+        super().info()
+        print("Привет, я квадрат со стороной: " + str(self.sideA))
+
+    def area(self):
+        super().area()
+        return self.sideA ** 2
+
+    def perimeter(self):
+        super().perimeter()
+        return  self.sideA * 2
+    
+    def count_angles(self):
+        super().count_angles()
+        print("Привет, я квадрат, у меня четыре угла")
+        
+    #радиус вписанной окружности
+    def radius(self):
+        super().radius()
+        radius = self.sideA / 2
+        return radius
+
+    
+
+
+
+
+
+
+
+
+
+
