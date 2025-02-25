@@ -248,7 +248,18 @@ class Square(Figure):
         radius = self.sideA / 2
         return radius
 
-    
+    # Треугольник
+class Triangle(Figure):
+    def __init__(self, basis :int, sideB :int, sideC :int, height :int):
+        self.basis = basis
+        self.sideB = sideB
+        self.sideC = sideC
+
+    #def area(self):
+
+
+
+
 
 
 
