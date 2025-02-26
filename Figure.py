@@ -254,8 +254,21 @@ class Triangle(Figure):
         self.basis = basis
         self.sideB = sideB
         self.sideC = sideC
+        self.height = height
 
-    #def area(self):
+    def area(self):
+        super().area()
+        return self.basis * self.height * 0.5
+
+    def perimeter(self):
+        super().perimeter()
+        return self.basis + self.sideB + self.sideC
+
+    #радиус описанной окружности
+    def radius(self):
+        super().radius()
+
+
 
 
 
