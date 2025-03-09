@@ -251,11 +251,112 @@ class Square(Figure):
     # Треугольник
 class Triangle(Figure):
     def __init__(self, basis :int, sideB :int, sideC :int, height :int):
+        super().__init__()
         self.basis = basis
         self.sideB = sideB
         self.sideC = sideC
+        self.height = height
 
-    #def area(self):
+    def info(self):
+        super().info()
+        print("Привет, я треугольник с основанием: " + str(self.basis))
+
+    def area(self):
+        super().area()
+        return self.basis * self.height * 0.5
+
+
+    def perimeter(self):
+        super().perimeter()
+        perimeter = self.basis + self.sideC + self.sideC
+        return perimeter
+
+    def count_angles(self):
+        super().count_angles()
+        print("Привет, я треугольник, у меня 3 угла")
+        
+    #радиус окуружности, вписанной в треугольник
+    def radius(self):
+        super().radius()
+        self.area() / ( self.perimeter() * 0.5)
+
+class RegularTriangle(Figure):
+    def __init__(self, OneSide :int):
+        super().__init__()
+        self.sside = OneSide
+
+    def info(self):
+        super().info()
+        print("Привет, я правильный треугольник со строной:" + self.sside)
+
+    def area(self):
+        super().area()
+        return  (self.sside ** 2 * math.sqrt(3)) / 4
+
+    def perimeter(self):
+        super().perimeter()
+        perimeter = 3 * self.sside
+        return perimeter
+
+    def count_angles(self):
+        super().count_angles()
+        print("Привет, я треугольник, у меня 3 угла")
+
+# радиус окружности, описанной около треугольника
+    def radius(self):
+        super().radius()
+        radius = self.sside / math.sqrt(3)
+        return radius
+
+class Sphere(Figure):
+    def __init__(self, radius, height):
+        super().__init__()
+        self.radius = radius
+        self.height = height
+
+    def info(self):
+        super().info()
+        print("Привет, я сфера")
+
+    def area(self):
+        super().area()
+        area = 4 * 3.14 * ( self.radius ** 2 )
+        return area
+
+    def Volume(self):
+        volume = 4/3 * 3.14 * ( self.radius ** 2 )
+        return volume
+
+    #площадь верхней поверхности сегмента сферы
+    #area of the upper surface of a segment of a sphere
+    def AUSSS(self, HeightofSegment):
+        self.HeightofSegment = HeightofSegment
+        AUSSS = 2 * 3.14 * self.radius * self.HeightofSegment
+
+class Parallelogram(Figure):
+    def __init__(self, bigside, smallside, height):
+        super().__init__()
+        self.bigside = bigside
+        self.smallside = smallside
+        self.height = height
+
+    def info(self):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
