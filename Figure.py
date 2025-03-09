@@ -124,7 +124,7 @@ class Square(Figure):
         self.sidesize = sidesize
         print(self.sidesize ** 2)
 
-    #def perimeter(self):
+    # def perimeter(self):
 
     def count_angles(self):
         super().count_angles()
@@ -148,7 +148,7 @@ class Circle(Figure):
 
     def area(self):
         super().area()
-        return  float((self.diametr/2) ** 2 * 3.14)
+        return float((self.diametr / 2) ** 2 * 3.14)
 
     def count_angles(self):
         super().count_angles()
@@ -156,11 +156,12 @@ class Circle(Figure):
 
     def radius(self):
         super().radius()
-        print(self.diametr/2)
+        print(self.diametr / 2)
 
-#прямоугольник
+
+# прямоугольник
 class Rectangle(Figure):
-    def __init__(self, a :int, b: int):
+    def __init__(self, a: int, b: int):
         super().__init__()
         self.a = a
         self.b = b
@@ -181,10 +182,11 @@ class Rectangle(Figure):
         super().count_angles()
         print("Я прямоугольник, у меня четыре угла")
 
-#радиус описанной окружности
+    # радиус описанной окружности
     def radius(self):
         super().radius()
         return (((self.a * self.a + self.b * self.b) ** 0.5) / 2)
+
 
 class Ellipse(Figure):
     def __init__(self, semi_major_axis, minor_axis, fi):
@@ -195,18 +197,19 @@ class Ellipse(Figure):
 
     def info(self):
         super().info()
-        print("Привет, я эллипс с большой полуосью: " + str(self.semi_major_axis) + " с малой полуосью: " + str(self.minor_axis) + " углом фи: " + str(self.fi) + " градусов")
+        print("Привет, я эллипс с большой полуосью: " + str(self.semi_major_axis) + " с малой полуосью: " + str(
+            self.minor_axis) + " углом фи: " + str(self.fi) + " градусов")
 
     def area(self):
         super().area()
         return float(3.14 * self.semi_major_axis * self.minor_axis)
 
-    #приближенная формула вычисления периметра эллипса
+    # приближенная формула вычисления периметра эллипса
     def perimeter(self):
         super().perimeter()
         numerator = float(3.14 * self.semi_major_axis * self.minor_axis + (self.semi_major_axis - self.minor_axis) ** 2)
         denominator = self.semi_major_axis + self.minor_axis
-        return float(4 * numerator / denominator )
+        return float(4 * numerator / denominator)
 
     def count_angles(self):
         super().count_angles()
@@ -220,6 +223,7 @@ class Ellipse(Figure):
         preresult = (denominator1 + denominator2) ** 0.5
         result = numerator / preresult
         return result
+
 
 class Square(Figure):
     def __init__(self, sideA):
@@ -236,21 +240,23 @@ class Square(Figure):
 
     def perimeter(self):
         super().perimeter()
-        return  self.sideA * 2
-    
+        return self.sideA * 2
+
     def count_angles(self):
         super().count_angles()
         print("Привет, я квадрат, у меня четыре угла")
-        
-    #радиус вписанной окружности
+
+    # радиус вписанной окружности
     def radius(self):
         super().radius()
         radius = self.sideA / 2
         return radius
 
     # Треугольник
+
+
 class Triangle(Figure):
-    def __init__(self, basis :int, sideB :int, sideC :int, height :int):
+    def __init__(self, basis: int, sideB: int, sideC: int, height: int):
         super().__init__()
         self.basis = basis
         self.sideB = sideB
@@ -265,7 +271,6 @@ class Triangle(Figure):
         super().area()
         return self.basis * self.height * 0.5
 
-
     def perimeter(self):
         super().perimeter()
         perimeter = self.basis + self.sideC + self.sideC
@@ -274,14 +279,15 @@ class Triangle(Figure):
     def count_angles(self):
         super().count_angles()
         print("Привет, я треугольник, у меня 3 угла")
-        
-    #радиус окуружности, вписанной в треугольник
+
+    # радиус окуружности, вписанной в треугольник
     def radius(self):
         super().radius()
-        self.area() / ( self.perimeter() * 0.5)
+        self.area() / (self.perimeter() * 0.5)
+
 
 class RegularTriangle(Figure):
-    def __init__(self, OneSide :int):
+    def __init__(self, OneSide: int):
         super().__init__()
         self.sside = OneSide
 
@@ -291,7 +297,7 @@ class RegularTriangle(Figure):
 
     def area(self):
         super().area()
-        return  (self.sside ** 2 * math.sqrt(3)) / 4
+        return (self.sside ** 2 * math.sqrt(3)) / 4
 
     def perimeter(self):
         super().perimeter()
@@ -302,11 +308,12 @@ class RegularTriangle(Figure):
         super().count_angles()
         print("Привет, я треугольник, у меня 3 угла")
 
-# радиус окружности, описанной около треугольника
+    # радиус окружности, описанной около треугольника
     def radius(self):
         super().radius()
         radius = self.sside / math.sqrt(3)
         return radius
+
 
 class Sphere(Figure):
     def __init__(self, radius, height):
@@ -320,18 +327,19 @@ class Sphere(Figure):
 
     def area(self):
         super().area()
-        area = 4 * 3.14 * ( self.radius ** 2 )
+        area = 4 * 3.14 * (self.radius ** 2)
         return area
 
     def Volume(self):
-        volume = 4/3 * 3.14 * ( self.radius ** 2 )
+        volume = 4 / 3 * 3.14 * (self.radius ** 2)
         return volume
 
-    #площадь верхней поверхности сегмента сферы
-    #area of the upper surface of a segment of a sphere
+    # площадь верхней поверхности сегмента сферы
+    # area of the upper surface of a segment of a sphere
     def AUSSS(self, HeightofSegment):
         self.HeightofSegment = HeightofSegment
         AUSSS = 2 * 3.14 * self.radius * self.HeightofSegment
+
 
 class Parallelogram(Figure):
     def __init__(self, bigside, smallside, height):
