@@ -349,6 +349,25 @@ class Parallelogram(Figure):
         self.height = height
 
     def info(self):
+        super().info()
+        print("Привет, я параллелограмм со стронами" + str(self.bigside) + str(self.smallside))
+
+    def area(self):
+        super().area()
+        area = self.bigside * self.height
+        return area
+
+    def perimeter(self):
+        super().perimeter()
+        perimeter = ( self.bigside + self.smallside ) * 2
+        return perimeter
+    
+    def count_angles(self):
+        super().count_angles()
+        print("Я параллелограммм, у меня четыре угла")
+
+    def radius(self):
+        super().radius()
 
 
 
