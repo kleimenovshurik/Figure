@@ -366,8 +366,11 @@ class Parallelogram(Figure):
         super().count_angles()
         print("Я параллелограммм, у меня четыре угла")
 
+    #радиус окружности, вписанной в параллелограмм. Случай если параллелограмм ромб.
     def radius(self):
         super().radius()
+        radius = self.area() / ( self.perimeter() * 0.5 )
+        return radius
 
 
 
