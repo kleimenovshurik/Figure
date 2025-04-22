@@ -1,0 +1,12 @@
+CREATE TABLE Store_Customers (
+    CustomerID SERIAL PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    PurchaseDate DATE NOT NULL,
+    Amount DECIMAL(10, 2) NOT NULL
+);
+CREATE TABLE Online_Customers (
+    CustomerID SERIAL PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    PurchaseDate DATE NOT NULL,
+    Amount DECIMAL(10, 2) NOT NULL
+);
