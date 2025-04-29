@@ -1,0 +1,6 @@
+select customers.customer_name, products.product_name
+from customers join
+orders on customers.customer_id = orders.customer_id 
+join order_items on orders.order_id = order_items.order_id 
+join products on order_items.product_id =  products.product_id
+where order_items.quantity > 2
