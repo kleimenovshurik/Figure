@@ -29,3 +29,36 @@ INSERT INTO Online_Customers (CustomerID, Name, PurchaseDate, Amount) VALUES
 (5,'Дмитрий Николаев', '2024-10-05', 50.25),
 (6,'Анна Сергеевна', '2024-10-06', 120),
 (7,'Ольга Кузнецова', '2024-10-07', 75.9);
+
+select  *
+		from 
+(select customerid, 
+		name, 
+		purchasedate, 
+		amount 
+		from online_customers
+		union 
+		select customerid, 
+		name, 
+		purchasedate, 
+		amount 
+		from store_customers) t1 
+
+
+
+-- Создание таблицы products
+CREATE TABLE products (
+    product_name VARCHAR(100),
+    list_price NUMERIC,
+    category_id INT
+);
+
+-- Вставка данных
+INSERT INTO products (product_name, list_price, category_id) VALUES
+('Product A', 100, 1),
+('Product B', 200, 1),
+('Product C', 150, 1),
+('Product D', 300, 2),
+('Product E', 250, 2),
+('Product F', 350, 2),
+('Product G', 400, 3);
