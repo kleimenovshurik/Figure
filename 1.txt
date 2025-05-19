@@ -62,3 +62,4 @@ INSERT INTO products (product_name, list_price, category_id) VALUES
 ('Product E', 250, 2),
 ('Product F', 350, 2),
 ('Product G', 400, 3);
+
