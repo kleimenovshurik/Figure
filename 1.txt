@@ -65,3 +65,5 @@ INSERT INTO products (product_name, list_price, category_id) VALUES
 
 select regexp_match(hashtag, '^#\w+') from posts
 
+05.06
+
